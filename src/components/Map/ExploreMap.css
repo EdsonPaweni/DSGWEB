@@ -1,0 +1,249 @@
+.explore-container {
+  display: flex;
+  height: calc(100vh - 80px);
+  position: relative;
+}
+
+.map-container {
+  flex: 1;
+  position: relative;
+}
+
+#fullMap {
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 340px;
+  background: rgba(15, 33, 46, 0.95);
+  backdrop-filter: blur(8px);
+  border-right: 1px solid rgba(193, 123, 44, 0.3);
+  overflow-y: auto;
+  padding: 1.5rem;
+  z-index: 10;
+}
+
+.sidebar h3,
+.sidebar h4 {
+  color: var(--primary-accent);
+  margin-bottom: 1rem;
+}
+
+.sidebar h3 {
+  font-size: 1.3rem;
+  border-bottom: 2px solid var(--primary-accent);
+  padding-bottom: 8px;
+}
+
+.layer-control {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(193, 123, 44, 0.2);
+}
+
+.layer-control label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  margin: 8px 0;
+  font-size: 0.9rem;
+}
+
+.layer-control label:hover {
+  color: var(--primary-accent);
+}
+
+.layer-control input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--primary-accent);
+}
+
+.control-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.control-btn {
+  background: rgba(193, 123, 44, 0.2);
+  border: 1px solid var(--primary-accent);
+  color: var(--text-light);
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 0.85rem;
+}
+
+.control-btn:hover {
+  background: var(--primary-accent);
+  color: var(--dark-bg);
+}
+
+.control-btn.active {
+  background: var(--primary-accent);
+  color: var(--dark-bg);
+}
+
+.query-result {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 12px;
+  border-radius: 12px;
+  margin-top: 12px;
+  font-size: 0.85rem;
+}
+
+.datasets-list {
+  margin-top: 10px;
+}
+
+.dataset-item {
+  border: 1px solid rgba(193, 123, 44, 0.3);
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 12px;
+  transition: 0.2s;
+}
+
+.dataset-item:hover {
+  border-color: var(--primary-accent);
+  background: rgba(193, 123, 44, 0.1);
+  transform: translateX(5px);
+}
+
+.dataset-item strong {
+  color: var(--primary-accent-light);
+}
+
+.add-cart-dataset-btn {
+  background: var(--primary-accent);
+  border: none;
+  padding: 5px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 8px;
+  transition: 0.2s;
+}
+
+.add-cart-dataset-btn:hover {
+  background: var(--primary-accent-light);
+  transform: scale(1.05);
+}
+
+/* Toolbar */
+.map-toolbar {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(15, 33, 46, 0.95);
+  backdrop-filter: blur(8px);
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  display: flex;
+  gap: 8px;
+}
+
+.toolbar-btn {
+  background: var(--primary-dark);
+  border: 1px solid var(--primary-accent);
+  color: var(--text-light);
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 1rem;
+}
+
+.toolbar-btn:hover {
+  background: var(--primary-accent);
+  color: var(--dark-bg);
+}
+
+.toolbar-btn.active {
+  background: var(--primary-accent);
+  color: var(--dark-bg);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    position: absolute;
+    left: -340px;
+    transition: 0.3s;
+    z-index: 1001;
+    height: 100%;
+  }
+  
+  .sidebar.open {
+    left: 0;
+  }
+  
+  .menu-toggle {
+    position: absolute;
+    left: 10px;
+    top: 90px;
+    z-index: 1002;
+    background: var(--primary-accent);
+    color: var(--dark-bg);
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    display: block;
+  }
+  
+  .map-toolbar {
+    top: 10px;
+    right: 10px;
+  }
+  
+  .toolbar-btn {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Leaflet popup custom styling */
+.leaflet-popup-content-wrapper {
+  background: var(--card-bg);
+  color: var(--text-light);
+  border-radius: 12px;
+  border: 1px solid var(--primary-accent);
+}
+
+.leaflet-popup-tip {
+  background: var(--card-bg);
+  border: 1px solid var(--primary-accent);
+}
+
+.leaflet-popup-content {
+  color: var(--text-light);
+}
+
+/* Scrollbar styling */
+.sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: var(--dark-bg);
+  border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: var(--primary-accent);
+  border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-accent-light);
+}
